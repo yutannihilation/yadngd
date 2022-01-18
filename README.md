@@ -19,7 +19,8 @@ remotes::install_github("yutannihilation/yadngd")
 
 ``` r
 library(yadngd)
-yadngd()
+
+yadngd(welcome_message = "◆祝◆ device activated!!! ◆祝◆")
 #> 🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿
 #> 
 #>    ◆祝◆ device activated!!! ◆祝◆   

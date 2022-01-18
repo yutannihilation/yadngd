@@ -4,7 +4,7 @@
 \alias{yadngd}
 \title{Return string \code{"Hello world!"} to R.}
 \usage{
-yadngd()
+yadngd(welcome_message)
 }
 \description{
 Return string \code{"Hello world!"} to R.

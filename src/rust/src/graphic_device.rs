@@ -5,20 +5,25 @@ use extendr_api::{
 
 // https://github.com/coolbutuseless/devout/blob/7bd337aab8f37a05db36afc5ff0ad643bc518449/src/rdevice.cpp#L1711-L1730
 
-struct YadnDevice {}
+struct YadnDevice<'a> {
+    welcome_message: &'a str,
+}
 
-impl DeviceDriver for YadnDevice {
-    fn activate(_: DevDesc) {
+impl<'a> DeviceDriver for YadnDevice<'a> {
+    fn activate(self, _dd: DevDesc) {
+        let welcome_message = self.welcome_message;
+
         rprintln!("🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿");
         rprintln!("");
-        rprintln!("   ◆祝◆ device activated!!! ◆祝◆   ");
+        rprintln!("   {welcome_message}   ");
         rprintln!("");
         rprintln!("🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿");
     }
 }
 
-pub fn make_graphic_device() -> i32 {
-    let device_driver = YadnDevice {};
+pub fn make_graphic_device(welcome_message: &str) -> i32 {
+    let device_driver = YadnDevice { welcome_message };
+
     let device_descriptor = DeviceDescriptor::new();
     let device = device_driver.create_device::<YadnDevice>(device_descriptor, "yadndgd");
     device.device_number()

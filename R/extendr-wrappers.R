@@ -10,5 +10,5 @@ NULL
 
 #' Return string `"Hello world!"` to R.
 #' @export
-yadngd <- function() .Call(wrap__yadngd)
+yadngd <- function(welcome_message) .Call(wrap__yadngd, welcome_message)
 

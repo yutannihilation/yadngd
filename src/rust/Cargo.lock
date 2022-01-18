@@ -5,7 +5,7 @@ version = 3
 [[package]]
 name = "extendr-api"
 version = "0.2.0"
-source = "git+https://github.com/yutannihilation/extendr?branch=feature/create-graphic-device#9478232477ff6884210d09009005a3c1470aaef9"
+source = "git+https://github.com/yutannihilation/extendr?branch=feature/create-graphic-device#af9d867c209e8a1c95df875ab774ee7e1a4e1125"
 dependencies = [
  "extendr-engine",
  "extendr-macros",
@@ -17,7 +17,7 @@ dependencies = [
 [[package]]
 name = "extendr-engine"
 version = "0.2.0"
-source = "git+https://github.com/yutannihilation/extendr?branch=feature/create-graphic-device#9478232477ff6884210d09009005a3c1470aaef9"
+source = "git+https://github.com/yutannihilation/extendr?branch=feature/create-graphic-device#af9d867c209e8a1c95df875ab774ee7e1a4e1125"
 dependencies = [
  "libR-sys",
 ]
@@ -25,7 +25,7 @@ dependencies = [
 [[package]]
 name = "extendr-macros"
 version = "0.2.0"
-source = "git+https://github.com/yutannihilation/extendr?branch=feature/create-graphic-device#9478232477ff6884210d09009005a3c1470aaef9"
+source = "git+https://github.com/yutannihilation/extendr?branch=feature/create-graphic-device#af9d867c209e8a1c95df875ab774ee7e1a4e1125"
 dependencies = [
  "proc-macro2",
  "quote",
