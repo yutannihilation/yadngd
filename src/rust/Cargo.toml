@@ -1,0 +1,16 @@
+[package]
+name = "yadngd"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+# To use local extendr-api
+# extendr-api = { path = "../../../extendr/extendr-api" }
+
+extendr-api = { git = "https://github.com/yutannihilation/extendr", branch = "feature/create-graphic-device" }
+
+[patch.crates-io]
+libR-sys = { git = "https://github.com/extendr/libR-sys", rev = "4a8734e3a1e40500f95669622af041d4a97d1a9d" }
