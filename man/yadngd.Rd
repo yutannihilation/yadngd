@@ -9,7 +9,7 @@ yadngd(welcome_message, show_message)
 \arguments{
 \item{welcome_message}{A warm message to welcome you.}
 
-\item{whether}{to show the message.}
+\item{show_message}{Whether to show the welcome message.}
 }
 \description{
 A graphic device that does nothing

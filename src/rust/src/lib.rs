@@ -13,7 +13,7 @@ impl<'a> DeviceDriver for YadnDevice<'a> {
     fn activate(&mut self, _dd: DevDesc) {
         let welcome_message = self.welcome_message;
 
-        if (self.show_message) {
+        if self.show_message {
             rprintln!("🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿");
             rprintln!("");
             rprintln!("   {welcome_message}   ");
@@ -26,7 +26,7 @@ impl<'a> DeviceDriver for YadnDevice<'a> {
 /// A graphic device that does nothing
 ///
 /// @param welcome_message A warm message to welcome you.
-/// @param whether to show the message.
+/// @param show_message Whether to show the welcome message.
 /// @export
 #[extendr]
 fn yadngd(welcome_message: String, show_message: bool) {

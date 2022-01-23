@@ -11,7 +11,7 @@ NULL
 #' A graphic device that does nothing
 #'
 #' @param welcome_message A warm message to welcome you.
-#' @param whether to show the message.
+#' @param show_message Whether to show the welcome message.
 #' @export
 yadngd <- function(welcome_message, show_message) invisible(.Call(wrap__yadngd, welcome_message, show_message))
 
