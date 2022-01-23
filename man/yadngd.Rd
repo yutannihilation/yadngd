@@ -2,10 +2,15 @@
 % Please edit documentation in R/extendr-wrappers.R
 \name{yadngd}
 \alias{yadngd}
-\title{Return string \code{"Hello world!"} to R.}
+\title{A graphic device that does nothing}
 \usage{
-yadngd(welcome_message)
+yadngd(welcome_message, show_message)
+}
+\arguments{
+\item{welcome_message}{A warm message to welcome you.}
+
+\item{whether}{to show the message.}
 }
 \description{
-Return string \code{"Hello world!"} to R.
+A graphic device that does nothing
 }

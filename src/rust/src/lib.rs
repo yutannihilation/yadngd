@@ -1,36 +1,43 @@
 use extendr_api::{
-    graphics::{device_descriptor::DeviceDescriptor, device_driver::DeviceDriver, DevDesc},
+    graphics::{DevDesc, DeviceDescriptor, DeviceDriver},
     prelude::*,
 };
 
+#[allow(dead_code)]
 struct YadnDevice<'a> {
     welcome_message: &'a str,
+    show_message: bool,
 }
 
 impl<'a> DeviceDriver for YadnDevice<'a> {
     fn activate(&mut self, _dd: DevDesc) {
         let welcome_message = self.welcome_message;
 
-        rprintln!("🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿");
-        rprintln!("");
-        rprintln!("   {welcome_message}   ");
-        rprintln!("");
-        rprintln!("🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿");
+        if (self.show_message) {
+            rprintln!("🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿");
+            rprintln!("");
+            rprintln!("   {welcome_message}   ");
+            rprintln!("");
+            rprintln!("🎉🍕🍰📺🍓✨🍣🐈🎿🎉🍕🍰📺🍓✨🍣🐈🎿");
+        }
     }
 }
 
-/// Return string `"Hello world!"` to R.
+/// A graphic device that does nothing
 ///
+/// @param welcome_message A warm message to welcome you.
+/// @param whether to show the message.
 /// @export
 #[extendr]
-fn yadngd(welcome_message: String) -> i32 {
+fn yadngd(welcome_message: String, show_message: bool) {
     let device_driver = YadnDevice {
         welcome_message: welcome_message.as_str(),
+        show_message,
     };
 
     let device_descriptor = DeviceDescriptor::new();
-    let device = device_driver.create_device::<YadnDevice>(device_descriptor, "yadndgd");
-    device.device_number()
+
+    device_driver.create_device::<YadnDevice>(device_descriptor, "yadndgd");
 }
 
 // Macro to generate exports.

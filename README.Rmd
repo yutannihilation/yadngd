@@ -31,13 +31,49 @@ remotes::install_github("yutannihilation/yadngd")
 ```{r}
 library(yadngd)
 
-yadngd(welcome_message = "◆祝◆ device activated!!! ◆祝◆")
+yadngd("◆祝◆ device activated!!! ◆祝◆", show_message = TRUE)
 
+# "yadgnd" is on the list
 dev.list()
 
 # do nothing
 plot(1)
 
+# close the device
 dev.off()
+```
+
+## Performance
+
+(The code is from [r-lib/devoid](https://github.com/r-lib/devoid))
+
+```{r}
+library(devoid)
+
+point_coord <- seq_len(1e4)
+
+void_plot <- function() {
+  void_dev()
+  plot(point_coord, point_coord)
+  dev.off()
+  NULL
+}
+
+yadngd_plot <- function() {
+  yadngd("", show_message = FALSE)
+  plot(point_coord, point_coord)
+  dev.off()
+  NULL
+}
+
+res <- bench::mark(
+  devoid = void_plot(),
+  yadngd = yadngd_plot(),
+  min_iterations = 50
+)
+
+res[, 1:9]
+
+plot(res)
 ```
 

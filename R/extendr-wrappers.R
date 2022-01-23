@@ -8,7 +8,10 @@
 #' @useDynLib yadngd, .registration = TRUE
 NULL
 
-#' Return string `"Hello world!"` to R.
+#' A graphic device that does nothing
+#'
+#' @param welcome_message A warm message to welcome you.
+#' @param whether to show the message.
 #' @export
-yadngd <- function(welcome_message) .Call(wrap__yadngd, welcome_message)
+yadngd <- function(welcome_message, show_message) invisible(.Call(wrap__yadngd, welcome_message, show_message))
 
